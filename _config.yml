@@ -1,0 +1,46 @@
+# Site-wide settings. Edit these and everything downstream follows.
+title: K. R. Jayaram
+tagline: Senior Technical Leader, IBM Research
+description: >-
+  K. R. Jayaram is a senior technical leader at IBM working on agents and
+  automation, with a focus on agentic memory.
+url: https://jayaramkr.github.io
+baseurl: ""
+lang: en
+
+# Flip to false to remove the banner once the site is ready.
+under_construction: true
+
+# Footer / header links. Add or remove freely.
+links:
+  - name: Google Scholar
+    url: https://scholar.google.com/citations?user=okMlqaMAAAAJ&hl=en
+  - name: DBLP
+    url: https://dblp.org/pid/21/2983.html
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/jayaramkr/
+  - name: GitHub
+    url: https://github.com/jayaramkr
+
+nav:
+  - name: Home
+    url: /
+  - name: Publications
+    url: /publications/
+  - name: Patents
+    url: /patents/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts

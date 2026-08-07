@@ -1,0 +1,285 @@
+---
+---
+/* Design tokens. Change --accent and the whole site follows. */
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5f6672;
+  --faint: #8b919c;
+  --rule: #e6e8ec;
+  --accent: #2f5d8f;
+  --accent-soft: #eef3f9;
+  --banner-bg: #fdf6e3;
+  --banner-fg: #7a5c14;
+  --banner-rule: #ecd9a6;
+  --measure: 44rem;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --fg: #e4e6ea;
+    --muted: #a2a9b5;
+    --faint: #7c838f;
+    --rule: #272b32;
+    --accent: #86b3e0;
+    --accent-soft: #1b2430;
+    --banner-bg: #241f13;
+    --banner-fg: #d9c184;
+    --banner-rule: #3d3524;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  background: var(--bg);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+a:hover { border-bottom-color: currentColor; }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Banner ---- */
+.banner {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  border-bottom: 1px solid var(--banner-rule);
+  font-size: 0.86rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+  padding: 0.55rem 1.25rem;
+}
+
+/* ---- Shell ---- */
+.site-header,
+main,
+.site-footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.site-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.site-title:hover { border-bottom-color: var(--rule); }
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.94rem;
+}
+.site-nav a { color: var(--muted); }
+.site-nav a[aria-current="page"] {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+main { padding-bottom: 4rem; }
+
+/* ---- Typography ---- */
+h1, h2, h3 {
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+h1 {
+  font-size: 1.9rem;
+  margin: 1rem 0 0.5rem;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 2.75rem 0 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+h3 {
+  font-size: 1.02rem;
+  margin: 1.75rem 0 0.5rem;
+}
+p { margin: 0 0 1.1rem; }
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.intro {
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* ---- Publication + patent lists ---- */
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pub-list li {
+  margin: 0 0 1.4rem;
+}
+.pub-title {
+  display: block;
+  font-weight: 550;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.pub-authors {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+.pub-authors .me {
+  color: var(--fg);
+  font-weight: 600;
+}
+.pub-meta {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--faint);
+  margin-top: 0.2rem;
+}
+.pub-meta .venue { color: var(--muted); }
+.pub-meta a { font-size: 0.86rem; }
+.sep { padding: 0 0.4rem; color: var(--rule); }
+
+.year-group {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0 1rem;
+  margin-top: 1.4rem;
+}
+/* The list already ends in a paragraph gap; don't stack another one on top. */
+.year-group .pub-list li:last-child { margin-bottom: 0.5rem; }
+.year-label {
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--faint);
+  padding-top: 0.2rem;
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+@media (max-width: 34rem) {
+  .year-group {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .year-label {
+    position: static;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.25rem;
+  }
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  padding: 0.1rem 0.4rem;
+  vertical-align: 0.08em;
+  margin-left: 0.35rem;
+}
+
+.patent-numbers {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--faint);
+  margin-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+.patent-numbers .num { color: var(--muted); }
+.patent-numbers a.num { color: var(--accent); }
+
+.summary {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0.25rem 0 1.5rem;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.colophon {
+  font-size: 0.82rem;
+  color: var(--faint);
+  margin: 0;
+}
