@@ -157,6 +157,12 @@ p { margin: 0 0 1.1rem; }
   line-height: 1.6;
 }
 
+.namenote {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--rule);
@@ -257,7 +263,12 @@ code {
   font-variant-numeric: tabular-nums;
 }
 .patent-numbers .num { color: var(--muted); }
-.patent-numbers a.num { color: var(--accent); }
+.patent-numbers a.pdf {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 0.06em;
+}
 
 .summary {
   font-size: 0.92rem;

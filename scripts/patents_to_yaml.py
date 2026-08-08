@@ -19,6 +19,11 @@ OUT = os.path.join(ROOT, "_data", "patents.yml")
 
 COUNTRIES = {"US", "CN", "JP", "GB", "DE", "EP", "IN"}
 
+# Official USPTO full-document PDF for a granted US patent. The number alone is
+# enough -- no kind code. Only US is handled: the CN/JP/GB grant numbers in the
+# export don't map to a stable public PDF URL without a database lookup.
+USPTO_PDF = "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/%s"
+
 # Best-to-worst; an invention takes the best status any of its filings reached.
 RANK = ["GRANTED", "APPLICATION", "PUBLISHED", "FILED", "DEFENSIVE PUBLICATION",
         "AWAITING PRE-RANKING", "AWAITING SEARCH", "ABANDONED", "CLOSED"]
@@ -82,10 +87,12 @@ def build(rows):
         grants = []
         for r in group:
             if r["Last Status"].strip() == "GRANTED" and r["Patent Number"].strip():
-                grants.append({
-                    "country": jurisdiction(r["Patent Reference"].strip(), ref) or "",
-                    "number": r["Patent Number"].strip(),
-                })
+                country = jurisdiction(r["Patent Reference"].strip(), ref) or ""
+                number = r["Patent Number"].strip()
+                grant = {"country": country, "number": number}
+                if country == "US" and number.isdigit():
+                    grant["pdf"] = USPTO_PDF % number
+                grants.append(grant)
         grants.sort(key=lambda g: (g["country"] != "US", g["country"]))
 
         # Formal filing titles read better than the raw disclosure titles.
@@ -156,6 +163,8 @@ def main():
             for g in e["grants"]:
                 lines.append("    - country: %s" % g["country"])
                 lines.append("      number: %s" % yaml_str(g["number"]))
+                if g.get("pdf"):
+                    lines.append("      pdf: %s" % yaml_str(g["pdf"]))
         elif e["pending"]:
             lines.append("  pending: [%s]" % ", ".join(e["pending"]))
         lines.append("")

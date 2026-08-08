@@ -2,8 +2,8 @@
 layout: default
 permalink: /patents/
 title: Patents
-subtitle: Inventions filed at IBM, grouped by invention rather than by filing — one entry may have issued in several jurisdictions.
-description: Patents and patent applications by K. R. Jayaram, covering agentic memory, AI agents, federated learning, and deep learning infrastructure.
+subtitle: Inventions filed at IBM, grouped by invention rather than by filing — one entry may have issued in several jurisdictions. Filed under my full legal name, Jayaram Kallapalayam Radhakrishnan.
+description: Patents and patent applications by Jayaram K Radhakrishnan, covering agentic memory, AI agents, federated learning, and deep learning infrastructure.
 ---
 
 {%- assign granted = site.data.patents | where: "status", "granted" | sort: "year" | reverse -%}
@@ -17,6 +17,8 @@ description: Patents and patent applications by K. R. Jayaram, covering agentic 
 <p class="summary">
 {{ granted | size }} granted inventions ({{ grant_count }} issued patents across jurisdictions),
 {{ pending | size }} pending applications. Years shown are the disclosure year.
+US grants link to the full document on USPTO; the CN, JP, and GB counterparts
+have no stable public PDF to link to.
 </p>
 
 ## Granted
@@ -27,12 +29,8 @@ description: Patents and patent applications by K. R. Jayaram, covering agentic 
     <span class="pub-title">{{ p.title }}</span>
     <span class="patent-numbers">
       {%- for g in p.grants -%}
-        {{ g.country }}&nbsp;
-        {%- if g.country == "US" -%}
-          <a class="num" href="https://patents.google.com/patent/US{{ g.number }}">{{ g.number }}</a>
-        {%- else -%}
-          <span class="num">{{ g.number }}</span>
-        {%- endif -%}
+        {{ g.country }}&nbsp;<span class="num">{{ g.number }}</span>
+        {%- if g.pdf %}&nbsp;<a class="pdf" href="{{ g.pdf }}">PDF</a>{% endif -%}
         {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
       {%- endfor -%}
     </span>

@@ -40,9 +40,11 @@ Append to `_data/publications.yml`, newest anywhere — the page sorts by year:
   selected: true        # optional: also show it on the home page
 ```
 
-Your own name is matched against `title:` in `_config.yml` and bolded
-automatically. `selected: true` controls the home-page list — there's no cap,
-but six or so reads best.
+Your own name is matched against `publishing_name:` in `_config.yml` (`K. R.
+Jayaram`) and bolded automatically — that's deliberately separate from `title:`
+(`Jayaram K Radhakrishnan`), which is the name in the site header.
+`selected: true` controls the home-page list — there's no cap, but six or so
+reads best.
 
 ### Adding a patent
 
@@ -56,10 +58,14 @@ Append to `_data/patents.yml`:
   grants:                # only for status: granted
     - country: US
       number: "12345678"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12345678"
   # pending: [US]        # use instead of `grants` for status: pending
 ```
 
-US grant numbers link to Google Patents automatically.
+A grant renders a "PDF" link when it has a `pdf:` field. `patents_to_yaml.py`
+fills that in for US grants from the USPTO document endpoint; CN, JP, and GB
+grant numbers have no equivalent stable public URL, so those render as plain
+numbers. Add a `pdf:` by hand if you find one.
 
 ### Regenerating from source exports
 
