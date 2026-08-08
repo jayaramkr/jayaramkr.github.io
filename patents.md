@@ -29,7 +29,12 @@ without one had no public PDF that could be verified.
     <span class="pub-title">{{ p.title }}</span>
     <span class="patent-numbers">
       {%- for g in p.grants -%}
-        {{ g.country }}&nbsp;<span class="num">{{ g.number }}</span>
+        {{ g.country }}&nbsp;
+        {%- if g.url -%}
+          <a class="num" href="{{ g.url }}">{{ g.number }}</a>
+        {%- else -%}
+          <span class="num">{{ g.number }}</span>
+        {%- endif -%}
         {%- if g.pdf %}&nbsp;<a class="pdf" href="{{ g.pdf }}">PDF</a>{% endif -%}
         {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
       {%- endfor -%}

@@ -24,10 +24,14 @@ COUNTRIES = {"US", "CN", "JP", "GB", "DE", "EP", "IN"}
 # export don't map to a stable public PDF URL without a database lookup.
 USPTO_PDF = "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/%s"
 
-# US grant numbers whose USPTO PDF URL was reported not to resolve. Without this
-# the script would re-add the broken link on every run. Remove a number here once
-# a working URL is confirmed, or add a `pdf:` by hand in _data/patents.yml.
-PDF_UNAVAILABLE = {"12632795"}
+# Grants where the derived USPTO PDF URL doesn't resolve, mapped to a hand-checked
+# replacement. These render as a link on the number itself rather than a "PDF"
+# label, because the target is a patent page, not a direct PDF. Setting a number
+# to None here drops its link entirely.
+GRANT_URL = {
+    # Granted 2026-06-03; no USPTO PDF. Links to the pre-grant publication.
+    "12632795": "https://patents.google.com/patent/US20230281518A1/en",
+}
 
 # Best-to-worst; an invention takes the best status any of its filings reached.
 RANK = ["GRANTED", "APPLICATION", "PUBLISHED", "FILED", "DEFENSIVE PUBLICATION",
@@ -95,7 +99,10 @@ def build(rows):
                 country = jurisdiction(r["Patent Reference"].strip(), ref) or ""
                 number = r["Patent Number"].strip()
                 grant = {"country": country, "number": number}
-                if country == "US" and number.isdigit() and number not in PDF_UNAVAILABLE:
+                if number in GRANT_URL:
+                    if GRANT_URL[number]:
+                        grant["url"] = GRANT_URL[number]
+                elif country == "US" and number.isdigit():
                     grant["pdf"] = USPTO_PDF % number
                 grants.append(grant)
         grants.sort(key=lambda g: (g["country"] != "US", g["country"]))
@@ -170,6 +177,8 @@ def main():
                 lines.append("      number: %s" % yaml_str(g["number"]))
                 if g.get("pdf"):
                     lines.append("      pdf: %s" % yaml_str(g["pdf"]))
+                if g.get("url"):
+                    lines.append("      url: %s" % yaml_str(g["url"]))
         elif e["pending"]:
             lines.append("  pending: [%s]" % ", ".join(e["pending"]))
         lines.append("")

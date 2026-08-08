@@ -62,10 +62,18 @@ Append to `_data/patents.yml`:
   # pending: [US]        # use instead of `grants` for status: pending
 ```
 
-A grant renders a "PDF" link when it has a `pdf:` field. `patents_to_yaml.py`
-fills that in for US grants from the USPTO document endpoint; CN, JP, and GB
-grant numbers have no equivalent stable public URL, so those render as plain
-numbers. Add a `pdf:` by hand if you find one.
+A grant can carry two optional link fields:
+
+- `pdf:` renders a separate "PDF" label. Use for direct PDF documents.
+  `patents_to_yaml.py` fills this in for US grants from the USPTO document
+  endpoint.
+- `url:` turns the grant number itself into a link. Use for patent *pages*
+  (Google Patents, Espacenet) that aren't a direct PDF.
+
+CN, JP, and GB grant numbers have no equivalent stable public URL, so those
+render as plain numbers. Add either field by hand if you find a link — or, so a
+re-run of the script keeps it, add it to `GRANT_URL` at the top of
+`scripts/patents_to_yaml.py`.
 
 ### Regenerating from source exports
 

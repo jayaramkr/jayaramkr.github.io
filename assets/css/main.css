@@ -263,6 +263,7 @@ code {
   font-variant-numeric: tabular-nums;
 }
 .patent-numbers .num { color: var(--muted); }
+.patent-numbers a.num { color: var(--accent); }
 .patent-numbers a.pdf {
   font-size: 0.76rem;
   letter-spacing: 0.04em;

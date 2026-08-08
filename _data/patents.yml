@@ -82,6 +82,7 @@
   grants:
     - country: US
       number: "12632795"
+      url: "https://patents.google.com/patent/US20230281518A1/en"
 
 - ref: "P202008631"
   title: "Method and System for In-Field Malfunctioning Detection of AI Systems"
