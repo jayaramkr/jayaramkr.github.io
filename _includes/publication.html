@@ -1,0 +1,20 @@
+{%- comment -%}
+Renders one publication. Expects `include.pub` — an entry from _data/publications.yml.
+{%- endcomment -%}
+<li>
+  <span class="pub-title">{{ include.pub.title }}{% if include.pub.role == "editor" %}<span class="tag">edited</span>{% endif %}</span>
+  <span class="pub-authors">
+    {%- for a in include.pub.authors -%}
+      {%- if a == site.title -%}<span class="me">{{ a }}</span>{%- else -%}{{ a }}{%- endif -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor -%}
+  </span>
+  <span class="pub-meta">
+    <span class="venue">{{ include.pub.venue }}</span>, {{ include.pub.year }}
+    {%- if include.pub.arxiv %}<span class="sep">·</span><a href="https://arxiv.org/abs/{{ include.pub.arxiv }}">arXiv</a>{% endif -%}
+    {%- comment -%}An arXiv DOI is the same destination as the arXiv link, so don't print it twice.{%- endcomment -%}
+    {%- assign is_arxiv_doi = include.pub.doi | downcase | slice: 0, 8 -%}
+    {%- if include.pub.doi and is_arxiv_doi != "10.48550" %}<span class="sep">·</span><a href="https://doi.org/{{ include.pub.doi }}">DOI</a>
+    {%- elsif include.pub.url and include.pub.arxiv == nil %}<span class="sep">·</span><a href="{{ include.pub.url }}">link</a>{% endif -%}
+  </span>
+</li>

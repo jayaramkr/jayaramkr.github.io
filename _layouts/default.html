@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% if site.under_construction %}
+  <div class="banner" role="status">
+    This site is under construction.
+  </div>
+  {% endif %}
+
+  <header class="site-header">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav" aria-label="Main">
+      {%- for item in site.nav -%}
+      {%- assign target = item.url | relative_url -%}
+      <a href="{{ target }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.name }}</a>
+      {%- endfor -%}
+    </nav>
+  </header>
+
+  <main id="main">
+    {% if page.title and page.url != "/" %}<h1>{{ page.title }}</h1>{% endif %}
+    {% if page.subtitle %}<p class="lede">{{ page.subtitle }}</p>{% endif %}
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links" aria-label="Elsewhere">
+      {%- for link in site.links -%}
+      <a href="{{ link.url }}" rel="me noopener">{{ link.name }}</a>
+      {%- endfor -%}
+    </nav>
+    <p class="colophon">© {{ 'now' | date: "%Y" }} {{ site.title }}. Views are my own.</p>
+  </footer>
+</body>
+</html>
