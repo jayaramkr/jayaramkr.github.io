@@ -17,8 +17,8 @@ description: Patents and patent applications by Jayaram K Radhakrishnan, coverin
 <p class="summary">
 {{ granted | size }} granted inventions ({{ grant_count }} issued patents across jurisdictions),
 {{ pending | size }} pending applications. Years shown are the disclosure year.
-US grants link to the full document on USPTO; the CN, JP, and GB counterparts
-have no stable public PDF to link to.
+Where a PDF link is shown, it points to the full document on USPTO. Grants
+without one had no public PDF that could be verified.
 </p>
 
 ## Granted

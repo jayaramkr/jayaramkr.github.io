@@ -24,6 +24,11 @@ COUNTRIES = {"US", "CN", "JP", "GB", "DE", "EP", "IN"}
 # export don't map to a stable public PDF URL without a database lookup.
 USPTO_PDF = "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/%s"
 
+# US grant numbers whose USPTO PDF URL was reported not to resolve. Without this
+# the script would re-add the broken link on every run. Remove a number here once
+# a working URL is confirmed, or add a `pdf:` by hand in _data/patents.yml.
+PDF_UNAVAILABLE = {"12632795"}
+
 # Best-to-worst; an invention takes the best status any of its filings reached.
 RANK = ["GRANTED", "APPLICATION", "PUBLISHED", "FILED", "DEFENSIVE PUBLICATION",
         "AWAITING PRE-RANKING", "AWAITING SEARCH", "ABANDONED", "CLOSED"]
@@ -90,7 +95,7 @@ def build(rows):
                 country = jurisdiction(r["Patent Reference"].strip(), ref) or ""
                 number = r["Patent Number"].strip()
                 grant = {"country": country, "number": number}
-                if country == "US" and number.isdigit():
+                if country == "US" and number.isdigit() and number not in PDF_UNAVAILABLE:
                     grant["pdf"] = USPTO_PDF % number
                 grants.append(grant)
         grants.sort(key=lambda g: (g["country"] != "US", g["country"]))

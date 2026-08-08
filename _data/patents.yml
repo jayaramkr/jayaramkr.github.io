@@ -82,7 +82,6 @@
   grants:
     - country: US
       number: "12632795"
-      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12632795"
 
 - ref: "P202008631"
   title: "Method and System for In-Field Malfunctioning Detection of AI Systems"
