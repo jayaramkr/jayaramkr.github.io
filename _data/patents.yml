@@ -82,6 +82,7 @@
   grants:
     - country: US
       number: "12632795"
+      url: "https://patents.google.com/patent/US20230281518A1/en"
 
 - ref: "P202008631"
   title: "Method and System for In-Field Malfunctioning Detection of AI Systems"
@@ -95,6 +96,7 @@
   grants:
     - country: US
       number: "12541708"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12541708"
     - country: CN
       number: "ZL202280032564.6"
     - country: JP
@@ -107,6 +109,7 @@
   grants:
     - country: US
       number: "11586475"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11586475"
 
 - ref: "P201907607"
   title: "Hyperparameter Determination for a Differentially Private Federated Learning Process"
@@ -115,6 +118,7 @@
   grants:
     - country: US
       number: "11941520"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11941520"
 
 - ref: "P201903338"
   title: "Secure Federation of Distributed Stochastic Gradient Descent"
@@ -135,6 +139,7 @@
   grants:
     - country: US
       number: "11263052"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11263052"
     - country: CN
       number: "ZL202010724291.4"
 
@@ -145,8 +150,10 @@
   grants:
     - country: US
       number: "11269728"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11269728"
     - country: US
       number: "11196547"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11196547"
 
 - ref: "YOR820140447"
   title: "Application Deployment and Monitoring in a Cloud Environment to Satisfy Integrity and Geo-Fencing Constraints"
@@ -155,6 +162,7 @@
   grants:
     - country: US
       number: "10228924"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10228924"
 
 - ref: "YOR820140423"
   title: "Graphics Processing Unit Resource Sharing"
@@ -163,5 +171,7 @@
   grants:
     - country: US
       number: "9830677"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9830677"
     - country: US
       number: "9830678"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9830678"

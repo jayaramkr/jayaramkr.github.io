@@ -2,8 +2,8 @@
 layout: default
 permalink: /publications/
 title: Publications
-subtitle: Peer-reviewed papers, preprints, and edited proceedings, newest first.
-description: Publications by K. R. Jayaram — agents and agentic memory, federated learning, and distributed systems.
+subtitle: Peer-reviewed papers, preprints, and edited proceedings, newest first. I publish as K. R. Jayaram.
+description: Publications by K. R. Jayaram (Jayaram K Radhakrishnan) — agents and agentic memory, federated learning, and distributed systems.
 ---
 
 {%- assign pubs = site.data.publications | sort: "year" | reverse -%}

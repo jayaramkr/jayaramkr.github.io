@@ -157,6 +157,12 @@ p { margin: 0 0 1.1rem; }
   line-height: 1.6;
 }
 
+.namenote {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--rule);
@@ -258,11 +264,65 @@ code {
 }
 .patent-numbers .num { color: var(--muted); }
 .patent-numbers a.num { color: var(--accent); }
+.patent-numbers a.pdf {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 0.06em;
+}
 
 .summary {
   font-size: 0.92rem;
   color: var(--muted);
   margin: 0.25rem 0 1.5rem;
+}
+
+/* ---- Research themes ---- */
+.theme-span {
+  display: block;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--faint);
+  margin: -0.5rem 0 0.9rem;
+}
+
+.theme-items {
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
+.theme-items > summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  color: var(--accent);
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.theme-items > summary::-webkit-details-marker { display: none; }
+.theme-items > summary::before {
+  content: "▸";
+  font-size: 0.7em;
+  transition: transform 0.15s ease;
+}
+.theme-items[open] > summary::before { transform: rotate(90deg); }
+.theme-items > summary:hover { text-decoration: underline; }
+.theme-items > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.theme-items .pub-list { margin-top: 1rem; }
+
+.items-subhead {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
 }
 
 /* ---- Footer ---- */

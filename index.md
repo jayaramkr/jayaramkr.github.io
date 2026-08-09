@@ -1,6 +1,6 @@
 ---
 layout: default
-description: K. R. Jayaram — senior technical leader at IBM working on agents and automation, with a focus on agentic memory.
+description: Jayaram K Radhakrishnan — senior technical leader at IBM working on agents and automation, with a focus on agentic memory.
 ---
 {%- comment -%}
 Counts used further down. Kept at the top of the file: a Liquid tag that trims
@@ -13,12 +13,17 @@ pulls the next paragraph into the heading.
 {%- assign grant_count = 0 -%}
 {%- for p in granted %}{% assign grant_count = grant_count | plus: p.grants.size %}{% endfor -%}
 
-# K. R. Jayaram
+# Jayaram K Radhakrishnan
 
 <p class="intro">
-I am a senior technical leader at IBM Research, working on <strong>agents and automation</strong>.
-My current focus is <strong>agentic memory</strong> — how autonomous agents form, store, retrieve,
-and reuse what they learn from experience.
+I am a senior technical leader at <a href="https://research.ibm.com/people/jayaram-kr-kallapalayam-radhakrishnan">IBM Research</a>,
+working on <strong>agents and automation</strong>. My current focus is <strong>agentic memory</strong> —
+how autonomous agents form, store, retrieve, and reuse what they learn from experience.
+</p>
+
+<p class="namenote">
+I publish as <strong>K. R. Jayaram</strong>; my patents are filed under my full legal name,
+Jayaram Kallapalayam Radhakrishnan.
 </p>
 
 Agents that run real work do not fail because a single model call is weak. They fail because
@@ -68,7 +73,8 @@ learning, and deep learning infrastructure.
 
 ## Elsewhere
 
-Find me on [LinkedIn](https://www.linkedin.com/in/jayaramkr/) —
-that is the best way to reach me. Publication records:
+My [IBM Research page](https://research.ibm.com/people/jayaram-kr-kallapalayam-radhakrishnan)
+is the official one. Find me on [LinkedIn](https://www.linkedin.com/in/jayaramkr/) — that is the
+best way to reach me. Publication records:
 [Google Scholar](https://scholar.google.com/citations?user=okMlqaMAAAAJ&hl=en) ·
 [DBLP](https://dblp.org/pid/21/2983.html).

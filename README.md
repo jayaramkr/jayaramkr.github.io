@@ -12,6 +12,8 @@ Everything you'd normally want to change is in one of four places:
 | --- | --- |
 | Bio, research narrative, "Elsewhere" links | `index.md` |
 | Site title, tagline, nav, footer links | `_config.yml` |
+| Research themes: prose | `research.md` |
+| Research themes: which papers/patents belong to each | `_data/themes.yml` |
 | Publications | `_data/publications.yml` |
 | Patents | `_data/patents.yml` |
 
@@ -40,9 +42,11 @@ Append to `_data/publications.yml`, newest anywhere — the page sorts by year:
   selected: true        # optional: also show it on the home page
 ```
 
-Your own name is matched against `title:` in `_config.yml` and bolded
-automatically. `selected: true` controls the home-page list — there's no cap,
-but six or so reads best.
+Your own name is matched against `publishing_name:` in `_config.yml` (`K. R.
+Jayaram`) and bolded automatically — that's deliberately separate from `title:`
+(`Jayaram K Radhakrishnan`), which is the name in the site header.
+`selected: true` controls the home-page list — there's no cap, but six or so
+reads best.
 
 ### Adding a patent
 
@@ -56,10 +60,45 @@ Append to `_data/patents.yml`:
   grants:                # only for status: granted
     - country: US
       number: "12345678"
+      pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12345678"
   # pending: [US]        # use instead of `grants` for status: pending
 ```
 
-US grant numbers link to Google Patents automatically.
+A grant can carry two optional link fields:
+
+- `pdf:` renders a separate "PDF" label. Use for direct PDF documents.
+  `patents_to_yaml.py` fills this in for US grants from the USPTO document
+  endpoint.
+- `url:` turns the grant number itself into a link. Use for patent *pages*
+  (Google Patents, Espacenet) that aren't a direct PDF.
+
+CN, JP, and GB grant numbers have no equivalent stable public URL, so those
+render as plain numbers. Add either field by hand if you find a link — or, so a
+re-run of the script keeps it, add it to `GRANT_URL` at the top of
+`scripts/patents_to_yaml.py`.
+
+### Editing the research page
+
+`research.md` holds one `##` section of prose per theme. The paper and patent list
+under each theme is not written there — it comes from `_data/themes.yml`, which
+maps a theme id to DBLP keys and patent refs:
+
+```yaml
+- id: agentic-memory
+  title: "Agentic memory and self-improving agents"
+  span: "2025–2026"
+  papers:
+    - "journals/corr/abs-2603-10600"
+  patents:
+    - "P202600929"
+```
+
+To move a paper between themes, move its key. To add a theme, add an entry here,
+then add a matching `##` section in `research.md` with an `{% raw %}{% assign %}{% endraw %}`
+lookup at the top of the file and an `{% raw %}{% include theme_items.html %}{% endraw %}`
+at the end of the section — copy an existing one. Keep the Liquid `assign` tags at
+the top of the file: a whitespace-trimming tag placed directly under a Markdown
+heading swallows the blank line and pulls the next paragraph into the heading.
 
 ### Regenerating from source exports
 

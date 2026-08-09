@@ -19,6 +19,20 @@ OUT = os.path.join(ROOT, "_data", "patents.yml")
 
 COUNTRIES = {"US", "CN", "JP", "GB", "DE", "EP", "IN"}
 
+# Official USPTO full-document PDF for a granted US patent. The number alone is
+# enough -- no kind code. Only US is handled: the CN/JP/GB grant numbers in the
+# export don't map to a stable public PDF URL without a database lookup.
+USPTO_PDF = "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/%s"
+
+# Grants where the derived USPTO PDF URL doesn't resolve, mapped to a hand-checked
+# replacement. These render as a link on the number itself rather than a "PDF"
+# label, because the target is a patent page, not a direct PDF. Setting a number
+# to None here drops its link entirely.
+GRANT_URL = {
+    # Granted 2026-06-03; no USPTO PDF. Links to the pre-grant publication.
+    "12632795": "https://patents.google.com/patent/US20230281518A1/en",
+}
+
 # Best-to-worst; an invention takes the best status any of its filings reached.
 RANK = ["GRANTED", "APPLICATION", "PUBLISHED", "FILED", "DEFENSIVE PUBLICATION",
         "AWAITING PRE-RANKING", "AWAITING SEARCH", "ABANDONED", "CLOSED"]
@@ -82,10 +96,15 @@ def build(rows):
         grants = []
         for r in group:
             if r["Last Status"].strip() == "GRANTED" and r["Patent Number"].strip():
-                grants.append({
-                    "country": jurisdiction(r["Patent Reference"].strip(), ref) or "",
-                    "number": r["Patent Number"].strip(),
-                })
+                country = jurisdiction(r["Patent Reference"].strip(), ref) or ""
+                number = r["Patent Number"].strip()
+                grant = {"country": country, "number": number}
+                if number in GRANT_URL:
+                    if GRANT_URL[number]:
+                        grant["url"] = GRANT_URL[number]
+                elif country == "US" and number.isdigit():
+                    grant["pdf"] = USPTO_PDF % number
+                grants.append(grant)
         grants.sort(key=lambda g: (g["country"] != "US", g["country"]))
 
         # Formal filing titles read better than the raw disclosure titles.
@@ -156,6 +175,10 @@ def main():
             for g in e["grants"]:
                 lines.append("    - country: %s" % g["country"])
                 lines.append("      number: %s" % yaml_str(g["number"]))
+                if g.get("pdf"):
+                    lines.append("      pdf: %s" % yaml_str(g["pdf"]))
+                if g.get("url"):
+                    lines.append("      url: %s" % yaml_str(g["url"]))
         elif e["pending"]:
             lines.append("  pending: [%s]" % ", ".join(e["pending"]))
         lines.append("")

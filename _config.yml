@@ -1,9 +1,13 @@
 # Site-wide settings. Edit these and everything downstream follows.
-title: K. R. Jayaram
+# Three names, deliberately: the site header uses `title`, publication author
+# lists bold `publishing_name`, and patents are filed under `legal_name`.
+title: Jayaram K Radhakrishnan
+publishing_name: K. R. Jayaram
+legal_name: Jayaram Kallapalayam Radhakrishnan
 tagline: Senior Technical Leader, IBM Research
 description: >-
-  K. R. Jayaram is a senior technical leader at IBM working on agents and
-  automation, with a focus on agentic memory.
+  Jayaram K Radhakrishnan is a senior technical leader at IBM working on agents
+  and automation, with a focus on agentic memory. He publishes as K. R. Jayaram.
 url: https://jayaramkr.github.io
 baseurl: ""
 lang: en
@@ -13,18 +17,20 @@ under_construction: true
 
 # Footer / header links. Add or remove freely.
 links:
+  - name: IBM Research
+    url: https://research.ibm.com/people/jayaram-kr-kallapalayam-radhakrishnan
   - name: Google Scholar
     url: https://scholar.google.com/citations?user=okMlqaMAAAAJ&hl=en
   - name: DBLP
     url: https://dblp.org/pid/21/2983.html
   - name: LinkedIn
     url: https://www.linkedin.com/in/jayaramkr/
-  - name: GitHub
-    url: https://github.com/jayaramkr
 
 nav:
   - name: Home
     url: /
+  - name: Research
+    url: /research/
   - name: Publications
     url: /publications/
   - name: Patents
