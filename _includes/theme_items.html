@@ -1,0 +1,47 @@
+{%- comment -%}
+Renders the papers and patents belonging to one theme. Expects `include.theme`
+— an entry from _data/themes.yml. Citation data is looked up by key from
+publications.yml / patents.yml so it lives in exactly one place.
+{%- endcomment -%}
+
+<details class="theme-items">
+  <summary>
+    {{ include.theme.papers | size }} papers{% if include.theme.patents %},
+    {{ include.theme.patents | size }} patent{% if include.theme.patents.size != 1 %}s{% endif %}{% endif %}
+  </summary>
+
+  <ul class="pub-list">
+  {%- for key in include.theme.papers -%}
+    {%- assign pub = site.data.publications | where: "key", key | first -%}
+    {%- if pub %}{% include publication.html pub=pub %}{% endif -%}
+  {%- endfor -%}
+  </ul>
+
+  {%- if include.theme.patents -%}
+  <h4 class="items-subhead">Patents</h4>
+  <ul class="pub-list">
+  {%- for ref in include.theme.patents -%}
+    {%- assign pat = site.data.patents | where: "ref", ref | first -%}
+    {%- if pat -%}
+    <li>
+      <span class="pub-title">{{ pat.title }}</span>
+      <span class="pub-meta">
+        {%- if pat.grants -%}
+          {%- for g in pat.grants -%}
+            {{ g.country }}&nbsp;
+            {%- if g.url -%}<a href="{{ g.url }}">{{ g.number }}</a>
+            {%- elsif g.pdf -%}<a href="{{ g.pdf }}">{{ g.number }}</a>
+            {%- else -%}{{ g.number }}{%- endif -%}
+            {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
+          {%- endfor -%}
+        {%- else -%}
+          {{ pat.status | capitalize }}{% if pat.pending %}, {{ pat.pending | join: ", " }}{% endif %}
+        {%- endif -%}
+        <span class="sep">·</span>Disclosed {{ pat.year }}
+      </span>
+    </li>
+    {%- endif -%}
+  {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</details>

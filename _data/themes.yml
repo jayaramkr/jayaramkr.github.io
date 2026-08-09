@@ -1,0 +1,115 @@
+# Research themes. `papers` and `patents` hold keys into publications.yml and
+# patents.yml -- citation data lives there, not here, so it stays in one place.
+# The prose for each theme lives in research.md under a heading with the same id.
+
+- id: agentic-memory
+  title: "Agentic memory and self-improving agents"
+  span: "2025–2026"
+  papers:
+    - "journals/corr/abs-2603-10600"
+    - "journals/corr/abs-2602-03007"
+  patents:
+    - "P202600882"
+    - "P202600929"
+    - "P202504124"
+    - "P202502973"
+    - "P202504123"
+
+- id: llm-agents
+  title: "LLM agents for enterprise automation"
+  span: "2024–2025"
+  papers:
+    - "conf/emnlp/DuesterwaldHIJK25"
+    - "conf/emnlp/BhopeVJIMV25"
+    - "conf/middleware/BhopeVJIMV25"
+    - "conf/IEEEscc/SauraJIBS25"
+    - "conf/middleware/DuesterwaldIJKM24"
+  patents:
+    - "P202500156"
+    - "P202402468"
+
+- id: fl-privacy
+  title: "Federated learning: privacy and secure aggregation"
+  span: "2019–2024"
+  papers:
+    - "conf/eurosys/ChengEGJJVV24"
+    - "books/sp/22/JayaramV22"
+    - "conf/bigdataconf/JayaramMTVP22"
+    - "conf/mascots/JayaramVTM22"
+    - "conf/sosp/ChengEGJJVV21"
+    - "conf/IEEEcloud/JayaramVVTS20"
+  patents:
+    - "P202100619"
+    - "P202103724"
+    - "P202009267"
+    - "P201907607"
+    - "P201903338"
+
+- id: fl-participation
+  title: "Federated learning: participation, scale, and adaptation"
+  span: "2020–2025"
+  papers:
+    - "conf/middleware/BhopeJVV25"
+    - "conf/middleware/BhopeJVVT23"
+  patents:
+    - "P202300541"
+    - "P202200024"
+    - "P202103897"
+    - "P202006261"
+
+- id: dl-platforms
+  title: "Platforms for large-scale deep learning"
+  span: "2014–2025"
+  papers:
+    - "journals/corr/abs-2505-16501"
+    - "conf/wosc/Gonzalez-VidalI23"
+    - "conf/mascots/SaxenaJBSV20"
+    - "conf/middleware/JayaramMDIWHBAT19"
+    - "conf/icac/JayaramGXT19"
+    - "conf/dsn/BoagDMHHJKMKV18"
+    - "journals/ibmrd/BhattacharjeeBD17"
+  patents:
+    - "P202008631"
+    - "P201901200"
+    - "P201809197"
+    - "P201900397"
+    - "YOR820140423"
+
+- id: cloud-trust
+  title: "Cloud elasticity, trust, and compliance"
+  span: "2006–2017"
+  papers:
+    - "conf/ic2e/LeJWDT17"
+    - "conf/bigdata/ChakravortyRJT17"
+    - "books/sp/17/MilenkoskiJK17"
+    - "books/sp/17/JayaramMK17"
+    - "conf/icdcs/Jayaram16"
+    - "conf/issre/MilenkoskiJAVK16"
+    - "conf/icse/Jayaram15"
+    - "conf/middleware/JayaramSSNPT14"
+    - "conf/middleware/Jayaram13"
+    - "conf/middleware/LeeRATJZ13"
+    - "conf/compsac/JayaramM08"
+    - "conf/compsac/Jayaram06"
+  patents:
+    - "YOR820140447"
+
+- id: events-pubsub
+  title: "Event correlation, publish/subscribe, and distributed programming"
+  span: "2008–2015"
+  papers:
+    - "journals/tpds/JayaramWE15"
+    - "conf/middleware/CulhaneJE14"
+    - "journals/toit/WilkinEJ14"
+    - "journals/tocs/JayaramEJ13"
+    - "journals/taosd/HolzerZJE12"
+    - "conf/wdag/CulhaneJE12"
+    - "conf/aosd/HolzerZJE11"
+    - "conf/debs/JayaramE11"
+    - "conf/icdcs/JayaramE11"
+    - "conf/middleware/WilkinJEK11"
+    - "conf/middleware/JayaramJE10"
+    - "conf/coordination/JayaramE10"
+    - "conf/ecoop/EugsterJ09"
+    - "conf/ecoop/JayaramE09"
+    - "conf/pppj/LineJE08"
