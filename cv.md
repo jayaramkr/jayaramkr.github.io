@@ -77,13 +77,29 @@ Each of these is covered in more depth, with the papers and patents behind it, o
 
 ## Service
 
+### Standing committees
+
+<ul class="cv-list plain">
+{%- for s in svc.steering %}
+  <li>
+    <span class="cv-what">{{ s.role }}</span>
+    <span class="cv-where">{{ s.venue }}{% if s.years %}<span class="sep">·</span>{{ s.years }}{% endif %}</span>
+  </li>
+{%- endfor %}
+</ul>
+
 ### Organizing
 
 <ul class="cv-list plain">
 {%- for s in svc.organizing %}
   <li>
-    <span class="cv-what">{{ s.role }}</span>
-    <span class="cv-where">{{ s.venue }}{% if s.years %}<span class="sep">·</span>{{ s.years }}{% endif %}</span>
+    <span class="cv-what">
+      {%- if s.url -%}<a href="{{ s.url }}">{{ s.role }}</a>{%- else -%}{{ s.role }}{%- endif -%}
+    </span>
+    <span class="cv-where">
+      {{- s.venue }}{% if s.years %}<span class="sep">·</span>{{ s.years }}{% endif %}
+      {%- if s.where %}<span class="sep">·</span>{{ s.where }}{% endif -%}
+    </span>
   </li>
 {%- endfor %}
 </ul>
