@@ -2,7 +2,10 @@
 Renders one publication. Expects `include.pub` — an entry from _data/publications.yml.
 {%- endcomment -%}
 <li>
-  <span class="pub-title">{{ include.pub.title }}{% if include.pub.role == "editor" %}<span class="tag">edited</span>{% endif %}</span>
+  <span class="pub-title">{{ include.pub.title }}
+    {%- if include.pub.role == "editor" %}<span class="tag">edited</span>{% endif -%}
+    {%- if include.pub.award %}<span class="tag award">{{ include.pub.award }}</span>{% endif -%}
+  </span>
   <span class="pub-authors">
     {%- for a in include.pub.authors -%}
       {%- if a == site.publishing_name -%}<span class="me">{{ a }}</span>{%- else -%}{{ a }}{%- endif -%}

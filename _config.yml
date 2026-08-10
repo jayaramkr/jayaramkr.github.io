@@ -35,6 +35,8 @@ nav:
     url: /publications/
   - name: Patents
     url: /patents/
+  - name: CV
+    url: /cv/
 
 markdown: kramdown
 kramdown:

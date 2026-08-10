@@ -12,6 +12,8 @@ Everything you'd normally want to change is in one of four places:
 | --- | --- |
 | Bio, research narrative, "Elsewhere" links | `index.md` |
 | Site title, tagline, nav, footer links | `_config.yml` |
+| CV: positions, education, recognition | `cv.md` |
+| Program committees, chairing, journal reviewing | `_data/service.yml` |
 | Research themes: prose | `research.md` |
 | Research themes: which papers/patents belong to each | `_data/themes.yml` |
 | Publications | `_data/publications.yml` |
@@ -99,6 +101,22 @@ lookup at the top of the file and an `{% raw %}{% include theme_items.html %}{% 
 at the end of the section — copy an existing one. Keep the Liquid `assign` tags at
 the top of the file: a whitespace-trimming tag placed directly under a Markdown
 heading swallows the blank line and pulls the next paragraph into the heading.
+
+### Adding service entries
+
+`_data/service.yml` has three lists — `organizing`, `program_committee` and
+`journals`. Append to whichever fits:
+
+```yaml
+program_committee:
+  - venue: Conference Name (ACRONYM)
+    years: "2019, 2021, 2024"
+```
+
+`years` is a free-text string, so `"2020, 2021"` and `"2014–2016"` both work.
+Leave it out entirely and the entry renders without years — useful when you know
+you served but not which year. The PC and journal lists currently stop at 2018;
+that is a gap in the source CV, not a rendering issue.
 
 ### Regenerating from source exports
 

@@ -1,0 +1,70 @@
+# Research community service.
+#
+# Years marked with a trailing "?" are not recorded anywhere I have — add them
+# as you confirm them. Entries with an empty `years` list render without years,
+# which is fine; fill them in when convenient.
+#
+# The 2014–2018 rows come from the older CV; the organizing roles from 2020
+# onward come from the current one. Anything between 2018 and now that is
+# missing simply hasn't been supplied yet.
+
+organizing:
+  - role: General Chair
+    venue: ACM/IFIP/USENIX International Middleware Conference
+    years: "2017"
+  - role: General Chair
+    venue: IEEE International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems (MASCOTS)
+    years: "2023"
+  - role: Program Chair
+    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
+    years: "2025"
+  - role: Vice-Chair / Track Chair
+    venue: IEEE International Conference on Distributed Computing Systems (ICDCS)
+    years: "2024"
+  - role: Industry Chair
+    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
+    years: "2020, 2021"
+  - role: Industry Track Program Co-Chair
+    venue: ACM/IFIP/USENIX International Middleware Conference
+    years: "2015"
+  - role: Research Posters Committee Co-Chair
+    venue: ACM SPLASH
+    years: "2013, 2014"
+
+program_committee:
+  - venue: ACM/IFIP/USENIX International Middleware Conference
+    years: "2014, 2018"
+  - venue: IEEE International Conference on Distributed Computing Systems (ICDCS)
+    years: "2013, 2015, 2016"
+  - venue: IFIP International Conference on Distributed Applications and Interoperable Systems (DAIS)
+    years: "2014, 2015, 2016, 2017"
+  - venue: ACM International Conference on Distributed Event-Based Systems (DEBS)
+    years: "2017"
+  - venue: IEEE International Conference on Cloud Engineering (IC2E)
+    years: "2014, 2016"
+  - venue: IEEE International Conference on Autonomic Computing (ICAC)
+    years: "2015"
+  - venue: IEEE International Workshop on Big Data and Cloud Performance (DCPerf)
+    years: "2016"
+  - venue: AAAI Conference on Artificial Intelligence
+    years:
+  - venue: Conference on Neural Information Processing Systems (NeurIPS)
+    years:
+  - venue: The Web Conference (WWW)
+    years:
+
+journals:
+  - venue: IEEE Transactions on Software Engineering
+    years: "2015"
+  - venue: IEEE Transactions on Mobile Computing
+    years: "2014, 2015"
+  - venue: ACM Transactions on Internet Technology
+    years: "2013"
+  - venue: "Software: Practice and Experience (Elsevier)"
+    years: "2014, 2015"
+
+# Proceedings edited as part of the organizing roles above. These are also in
+# publications.yml, tagged `role: editor`.
+edited:
+  - "conf/middleware/2017"
+  - "conf/middleware/2015i"
