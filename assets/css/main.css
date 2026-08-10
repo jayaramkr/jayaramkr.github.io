@@ -316,6 +316,41 @@ code {
 }
 .theme-items .pub-list { margin-top: 1rem; }
 
+/* ---- CV / service lists ---- */
+.cv-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+.cv-list li { margin: 0 0 1.1rem; }
+.cv-list.plain li { margin-bottom: 0.7rem; }
+
+.cv-what {
+  display: block;
+  font-weight: 550;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.cv-where {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+.cv-note {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+h3 + .cv-list { margin-top: 0.75rem; }
+
+.tag.award {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
 .items-subhead {
   font-size: 0.78rem;
   letter-spacing: 0.06em;
