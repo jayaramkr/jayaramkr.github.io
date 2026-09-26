@@ -5,8 +5,7 @@
 # entries go at the top.
 #
 # `date` is optional and free text ("September 2026", "2026-09-14"). Entries
-# without one render without a date; the four blog posts below need theirs
-# filled in.
+# without one simply render without a date.
 #
 # kind: writing | talk | other
 
@@ -14,7 +13,7 @@
   title: "Your Agent Aced the Task. Will It Do It Again?"
   url: https://huggingface.co/blog/ibm-research/altk-evolve-consistency
   outlet: IBM Research on Hugging Face
-  date:
+  date: September 15, 2026
   note: >-
     On measuring whether an agent is reproducible, not just accurate on average.
 
@@ -22,7 +21,7 @@
   title: "How Much Memory Does Your Agent Actually Need?"
   url: https://huggingface.co/blog/ibm-research/altk-evolve-hmm
   outlet: IBM Research on Hugging Face
-  date:
+  date: August 18, 2026
   note: >-
     Agentic memory across eight models — a dose to calibrate, not a feature to switch on.
 
@@ -30,7 +29,7 @@
   title: "Thinking of ACE? We Can Do It with Fewer Tokens"
   url: https://huggingface.co/blog/ibm-research/altk-evolve-sldd
   outlet: IBM Research on Hugging Face
-  date:
+  date: August 11, 2026
   note: >-
     Comparing ALTK-Evolve against ACE on AppWorld across the same base models.
 
@@ -38,7 +37,7 @@
   title: "ALTK-Evolve: On-the-Job Learning for AI Agents"
   url: https://huggingface.co/blog/ibm-research/altk-evolve
   outlet: IBM Research on Hugging Face
-  date:
+  date: April 8, 2026
   note: >-
     Introducing ALTK-Evolve — agents that learn from their own past trajectories,
     with no weight updates and no human annotation.
