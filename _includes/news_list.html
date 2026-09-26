@@ -1,0 +1,22 @@
+{%- comment -%}
+Renders a list of news / writing entries. Expects `include.items` — a subset of
+_data/news.yml. Optional `include.limit` caps how many are shown.
+{%- endcomment -%}
+{%- if include.limit -%}
+  {%- assign items = include.items | slice: 0, include.limit -%}
+{%- else -%}
+  {%- assign items = include.items -%}
+{%- endif -%}
+
+<ul class="news-list">
+{%- for n in items %}
+  <li>
+    <span class="news-title"><a href="{{ n.url }}">{{ n.title }}</a></span>
+    <span class="news-meta">
+      {{- n.outlet -}}
+      {%- if n.date %}<span class="sep">·</span>{{ n.date }}{% endif -%}
+    </span>
+    {%- if n.note %}<span class="news-note">{{ n.note }}</span>{% endif -%}
+  </li>
+{%- endfor %}
+</ul>
