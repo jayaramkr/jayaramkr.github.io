@@ -12,6 +12,7 @@ pulls the next paragraph into the heading.
 {%- assign pending = site.data.patents | where: "status", "pending" -%}
 {%- assign grant_count = 0 -%}
 {%- for p in granted %}{% assign grant_count = grant_count | plus: p.grants.size %}{% endfor -%}
+{%- assign news = site.data.news -%}
 
 # Jayaram K Radhakrishnan
 
@@ -30,6 +31,10 @@ Agents that run real work do not fail because a single model call is weak. They 
 nothing carries forward: the same subtask gets re-derived, hard-won context is dropped between
 runs, and useful trajectories are thrown away instead of becoming reusable knowledge. Memory is
 the systems problem underneath that, and it is the one I spend my time on.
+
+## News
+
+{% include news_list.html items=news limit=4 %}
 
 ## What I work on
 

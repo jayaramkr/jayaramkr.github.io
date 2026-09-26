@@ -14,6 +14,7 @@ Everything you'd normally want to change is in one of four places:
 | Site title, tagline, nav, footer links | `_config.yml` |
 | CV: positions, education, recognition | `cv.md` |
 | Program committees, chairing, journal reviewing | `_data/service.yml` |
+| News on the home page, and Writing on the publications page | `_data/news.yml` |
 | Research themes: prose | `research.md` |
 | Research themes: which papers/patents belong to each | `_data/themes.yml` |
 | Publications | `_data/publications.yml` |
@@ -101,6 +102,26 @@ lookup at the top of the file and an `{% raw %}{% include theme_items.html %}{% 
 at the end of the section — copy an existing one. Keep the Liquid `assign` tags at
 the top of the file: a whitespace-trimming tag placed directly under a Markdown
 heading swallows the blank line and pulls the next paragraph into the heading.
+
+### Adding a news item
+
+`_data/news.yml` drives both the News section on the home page and the Writing
+section on the publications page. Newest goes at the top — the file order is the
+display order, it is not sorted by date.
+
+```yaml
+- kind: writing          # writing | talk | other
+  title: "Post or talk title"
+  url: https://example.com/post
+  outlet: Where it appeared
+  date: September 2026   # optional, free text; omitted renders without a date
+  note: >-
+    One line of context. Optional.
+```
+
+Only `kind: writing` entries appear on the publications page; the home page
+shows the most recent four of everything. Change `limit=4` in `index.md` to show
+more.
 
 ### Adding service entries
 
