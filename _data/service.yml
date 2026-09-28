@@ -45,7 +45,12 @@ organizing:
     url: https://dl.acm.org/doi/proceedings/10.1145/2830013
   - role: Research Posters Committee Co-Chair
     venue: ACM SPLASH
-    years: "2013, 2014"
+    years: "2014"
+    url: https://2014.splashcon.org/track/splash2014-posters
+  - role: Research Posters Committee Co-Chair
+    venue: ACM SPLASH
+    years: "2013"
+    url: https://2013.splashcon.org/track/splash-2013-Posters
 
 steering:
   - role: Steering Committee
