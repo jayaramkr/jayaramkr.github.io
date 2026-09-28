@@ -36,9 +36,13 @@ organizing:
   - role: General Chair
     venue: ACM/IFIP/USENIX International Middleware Conference
     years: "2017"
+    where: Las Vegas, NV
+    url: https://middleware2017.github.io/middleware2017/
   - role: Industry Track Program Co-Chair
     venue: ACM/IFIP/USENIX International Middleware Conference
     years: "2015"
+    where: Vancouver, BC
+    url: https://dl.acm.org/doi/proceedings/10.1145/2830013
   - role: Research Posters Committee Co-Chair
     venue: ACM SPLASH
     years: "2013, 2014"
