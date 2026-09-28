@@ -132,12 +132,18 @@ more.
 program_committee:
   - venue: Conference Name (ACRONYM)
     years: "2019, 2021, 2024"
+    note: Young Researchers' Symposium   # optional
 ```
 
 `years` is a free-text string, so `"2020, 2021"` and `"2014–2016"` both work.
 Leave it out entirely and the entry renders without years — useful when you know
-you served but not which year. The PC and journal lists currently stop at 2018;
-that is a gap in the source CV, not a rendering issue.
+you served but not which year. `note` is optional and renders after the years;
+use it only where the plain venue name would overstate the role, such as serving
+on a satellite symposium rather than the main conference.
+
+The PC list is ordered by most recent year of service, newest first. Journal
+reviewing currently stops at 2015 — that is a gap in the source CV, not a
+rendering issue, and the page says so.
 
 ### Regenerating from source exports
 
