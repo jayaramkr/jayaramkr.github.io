@@ -119,7 +119,11 @@ Proceedings edited in those roles:
 {%- for s in svc.program_committee %}
   <li>
     <span class="cv-what">{{ s.venue }}</span>
-    {%- if s.years %}<span class="cv-where">{{ s.years }}</span>{% endif %}
+    {%- if s.years or s.note %}<span class="cv-where">
+      {{- s.years -}}
+      {%- if s.years and s.note %}<span class="sep">·</span>{% endif -%}
+      {{- s.note -}}
+    </span>{% endif %}
   </li>
 {%- endfor %}
 </ul>
@@ -141,8 +145,8 @@ Chaired the IBM-wide committee that evaluated invention disclosures for strategi
 filing, for four years.
 
 <p class="summary">
-This list runs through 2018 for program committees and journals; more recent years are still
-being added. The full publication record is on the
+Journal reviewing is recorded only through 2015; more recent years are still being added.
+The full publication record is on the
 <a href="{{ '/publications/' | relative_url }}">publications page</a>, and inventions on the
 <a href="{{ '/patents/' | relative_url }}">patents page</a>.
 </p>
