@@ -125,8 +125,17 @@ more.
 
 ### Adding service entries
 
-`_data/service.yml` has three lists — `organizing`, `program_committee` and
-`journals`. Append to whichever fits:
+`_data/service.yml` has four lists — `steering`, `organizing`,
+`program_committee` and `journals` — rendered in that order.
+
+`steering` holds standing committee seats, including the IBM one; entries take an
+optional `note`. `organizing` is grouped by role rather than sorted by date:
+general chair, then program chair, then industry program chair, then posters
+chair, newest first within each group. Add a new role next to its own kind. Don't
+use the words "track chair" for any of these — at these venues that title means
+session chair, which is a different job.
+
+Append to whichever list fits:
 
 ```yaml
 program_committee:
