@@ -79,11 +79,12 @@ Each of these is covered in more depth, with the papers and patents behind it, o
 
 ### Standing committees
 
-<ul class="cv-list plain">
+<ul class="cv-list">
 {%- for s in svc.steering %}
   <li>
     <span class="cv-what">{{ s.role }}</span>
     <span class="cv-where">{{ s.venue }}{% if s.years %}<span class="sep">·</span>{{ s.years }}{% endif %}</span>
+    {%- if s.note %}<span class="cv-note">{{ s.note }}</span>{% endif %}
   </li>
 {%- endfor %}
 </ul>
@@ -138,11 +139,6 @@ Proceedings edited in those roles:
   </li>
 {%- endfor %}
 </ul>
-
-### Within IBM
-
-Chaired the IBM-wide committee that evaluated invention disclosures for strategic patent
-filing, for four years.
 
 <p class="summary">
 Journal reviewing is recorded only through 2015; more recent years are still being added.

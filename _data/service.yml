@@ -7,54 +7,66 @@
 # Program committees are recorded through 2026. Journal reviewing stops at 2015;
 # anything since then simply hasn't been supplied yet.
 
-# Newest first. `url` and `where` are both optional.
+# Standing committees, rendered above the organizing roles.
+steering:
+  - role: Steering Committee
+    venue: ACM/IFIP/USENIX International Middleware Conference
+    years: "since 2018"
+  - role: Chair, Invention Development Team
+    venue: IBM
+    years: "4 years"
+    note: >-
+      The IBM-wide committee that evaluated invention disclosures for strategic
+      patent filing.
+
+# Grouped by seniority of role, newest first within each group: general chair,
+# then program chair, then industry program chair, then posters chair. "Track
+# chair" is deliberately not used anywhere here — at these venues that title
+# means session chair, which is a different job.
+#
+# `url`, `where` and `note` are all optional.
 organizing:
-  - role: Program Co-Chair
-    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
-    years: "2025"
-    where: Tokyo, Japan
-    url: https://2025.acsos.org/
-  - role: TPC Vice-Chair
-    venue: IEEE International Conference on Distributed Computing Systems (ICDCS)
-    years: "2024"
-    where: Jersey City, NJ
-    url: https://icdcs2024.icdcs.org/technical-committee/
   - role: General Chair
     venue: IEEE International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems (MASCOTS)
     years: "2023"
     where: Stony Brook, NY
     url: https://ieeexplore.ieee.org/document/10387619
-  - role: Industry / In-Practice Track Chair
-    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
-    years: "2021"
-    url: https://conf.researchr.org/track/acsos-2021/acsos-2021-in-practice-track
-  - role: Industry / In-Practice Track Chair
-    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
-    years: "2020"
-    url: https://2020.acsos.org/track/acsos-2020-in-practice-track
   - role: General Chair
     venue: ACM/IFIP/USENIX International Middleware Conference
     years: "2017"
     where: Las Vegas, NV
     url: https://middleware2017.github.io/middleware2017/
-  - role: Industry Track Program Co-Chair
+  - role: Program Co-Chair
+    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
+    years: "2025"
+    where: Tokyo, Japan
+    url: https://2025.acsos.org/
+  - role: Program Vice-Chair
+    venue: IEEE International Conference on Distributed Computing Systems (ICDCS)
+    years: "2024"
+    where: Jersey City, NJ
+    url: https://icdcs2024.icdcs.org/technical-committee/
+  - role: Industry Program Co-Chair
+    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
+    years: "2021"
+    url: https://conf.researchr.org/track/acsos-2021/acsos-2021-in-practice-track
+  - role: Industry Program Co-Chair
+    venue: IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)
+    years: "2020"
+    url: https://2020.acsos.org/track/acsos-2020-in-practice-track
+  - role: Industry Program Co-Chair
     venue: ACM/IFIP/USENIX International Middleware Conference
     years: "2015"
     where: Vancouver, BC
     url: https://dl.acm.org/doi/proceedings/10.1145/2830013
-  - role: Research Posters Committee Co-Chair
+  - role: Research Posters Co-Chair
     venue: ACM SPLASH
     years: "2014"
     url: https://2014.splashcon.org/track/splash2014-posters
-  - role: Research Posters Committee Co-Chair
+  - role: Research Posters Co-Chair
     venue: ACM SPLASH
     years: "2013"
     url: https://2013.splashcon.org/track/splash-2013-Posters
-
-steering:
-  - role: Steering Committee
-    venue: ACM/IFIP/USENIX International Middleware Conference
-    years: "since 2018"
 
 # Ordered by most recent year of service. `note` is optional — use it only where
 # the plain venue name would overstate the role (a symposium or satellite track
@@ -78,7 +90,7 @@ program_committee:
   - venue: ACM International Conference on Distributed and Event-Based Systems (DEBS)
     years: "2017, 2019"
   - venue: ACM/IFIP/USENIX International Middleware Conference
-    years: "2014, 2018"
+    years: "2014, 2018, 2019"
   - venue: IFIP International Conference on Distributed Applications and Interoperable Systems (DAIS)
     years: "2014, 2015, 2016, 2017"
   - venue: IEEE International Conference on Cloud Engineering (IC2E)
