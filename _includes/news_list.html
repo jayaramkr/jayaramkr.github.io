@@ -10,8 +10,17 @@ _data/news.yml. Optional `include.limit` caps how many are shown.
 
 <ul class="news-list">
 {%- for n in items %}
+  {%- comment -%}
+  `url` may be external or a path on this site (a post under /writing/), so only
+  site-relative paths get run through relative_url.
+  {%- endcomment -%}
+  {%- if n.url contains "://" -%}
+    {%- assign href = n.url -%}
+  {%- else -%}
+    {%- assign href = n.url | relative_url -%}
+  {%- endif -%}
   <li>
-    <span class="news-title"><a href="{{ n.url }}">{{ n.title }}</a></span>
+    <span class="news-title"><a href="{{ href }}">{{ n.title }}</a></span>
     <span class="news-meta">
       {{- n.outlet -}}
       {%- if n.date %}<span class="sep">·</span>{{ n.date }}{% endif -%}

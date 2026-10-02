@@ -345,6 +345,20 @@ code {
   margin-top: 0.25rem;
 }
 
+/* ---- Posts ---- */
+.post-meta {
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--faint);
+  margin: -0.5rem 0 1.75rem;
+}
+.post-back {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+
 /* ---- CV / service lists ---- */
 .cv-list {
   list-style: none;
