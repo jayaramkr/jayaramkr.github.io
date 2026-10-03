@@ -7,7 +7,20 @@
 # `date` is optional and free text ("September 2026", "2026-09-14"). Entries
 # without one simply render without a date.
 #
-# kind: writing | talk | other
+# kind: post | writing | talk | other
+#
+# `post` means a post on this site, under /writing/. Those need an entry here
+# only to appear in News on the home page — the /writing/ page builds its own
+# list straight from _posts/, so a post is never listed twice.
+
+- kind: post
+  title: "Memory as Middleware for Self-Improving AI Agents"
+  url: /writing/memory-as-middleware/
+  outlet: On this site
+  date: October 2, 2026
+  note: >-
+    One memory layer running under six independently developed agents, and the six
+    systems challenges that come with it. Our Middleware 2026 paper.
 
 - kind: writing
   title: "Your Agent Aced the Task. Will It Do It Again?"

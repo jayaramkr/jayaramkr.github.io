@@ -14,7 +14,8 @@ Everything you'd normally want to change is in one of four places:
 | Site title, tagline, nav, footer links | `_config.yml` |
 | CV: positions, education, recognition | `cv.md` |
 | Program committees, chairing, journal reviewing | `_data/service.yml` |
-| News on the home page, and Writing on the publications page | `_data/news.yml` |
+| Posts on this site | `_posts/` |
+| News on the home page, and the Elsewhere list on `/writing/` | `_data/news.yml` |
 | Research themes: prose | `research.md` |
 | Research themes: which papers/patents belong to each | `_data/themes.yml` |
 | Publications | `_data/publications.yml` |
@@ -103,14 +104,35 @@ at the end of the section — copy an existing one. Keep the Liquid `assign` tag
 the top of the file: a whitespace-trimming tag placed directly under a Markdown
 heading swallows the blank line and pulls the next paragraph into the heading.
 
-### Adding a news item
+### Writing a post
 
-`_data/news.yml` drives both the News section on the home page and the Writing
-section on the publications page. Newest goes at the top — the file order is the
-display order, it is not sorted by date.
+Posts are ordinary Jekyll posts. Add a file to `_posts/` named
+`YYYY-MM-DD-slug.md`; it is served at `/writing/<slug>/` and the `post` layout is
+applied automatically.
 
 ```yaml
-- kind: writing          # writing | talk | other
+---
+title: "Title of the Post"
+subtitle: One sentence. Shown as the lede on the post and as the blurb on /writing/.
+description: >-
+  Two lines for search results and link previews.
+---
+```
+
+Then write Markdown below the front matter. The `/writing/` page picks the post up
+from `_posts/` on the next build — there is nothing to register.
+
+To get it into News on the home page as well, add an entry to `_data/news.yml`
+with `kind: post` and a site-relative `url` (see below).
+
+### Adding a news item
+
+`_data/news.yml` drives the News section on the home page and the Elsewhere list
+on `/writing/`. Newest goes at the top — the file order is the display order, it
+is not sorted by date.
+
+```yaml
+- kind: writing          # post | writing | talk | other
   title: "Post or talk title"
   url: https://example.com/post
   outlet: Where it appeared
@@ -119,9 +141,13 @@ display order, it is not sorted by date.
     One line of context. Optional.
 ```
 
-Only `kind: writing` entries appear on the publications page; the home page
-shows the most recent four of everything. Change `limit=4` in `index.md` to show
-more.
+`url` may be external or a path on this site — site-relative paths are run
+through `relative_url`, external ones are left alone.
+
+The home page shows the most recent four entries of every kind; change `limit=4`
+in `index.md` to show more. Only `kind: writing` entries appear under Elsewhere on
+`/writing/`, which is what keeps a `kind: post` entry from being listed twice on
+that page — once from `_posts/` and again from here.
 
 ### Adding service entries
 
@@ -181,14 +207,18 @@ bundle exec jekyll serve   # http://localhost:4000
 ## Layout
 
 ```
-_config.yml                site settings, nav, footer links
-_data/                     publications.yml, patents.yml
-_includes/                 head.html, publication.html
-_layouts/default.html      the only layout
+_config.yml                site settings, nav, footer links, post permalink
+_data/                     publications.yml, patents.yml, themes.yml, service.yml, news.yml
+_includes/                 head.html, publication.html, news_list.html, theme_items.html
+_layouts/                  default.html, post.html
+_posts/                    posts, served at /writing/<slug>/
 assets/css/main.css        all the styling; tokens at the top
 index.md                   home
+research.md                themes, with prose per theme
+writing.md                 posts, plus writing published elsewhere
 publications.md            full list, grouped by year
 patents.md                 granted / pending / other
+cv.md                      positions, education, recognition, service
 404.html
 scripts/                   regenerate the YAML from source exports
 ```

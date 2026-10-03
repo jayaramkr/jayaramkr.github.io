@@ -31,12 +31,25 @@ nav:
     url: /
   - name: Research
     url: /research/
+  - name: Writing
+    url: /writing/
   - name: Publications
     url: /publications/
   - name: Patents
     url: /patents/
   - name: CV
     url: /cv/
+
+# Posts live in _posts/ and are served at /writing/<slug>/. The slug comes from
+# the filename, so _posts/2026-10-02-memory-as-middleware.md becomes
+# /writing/memory-as-middleware/.
+permalink: /writing/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 markdown: kramdown
 kramdown:
