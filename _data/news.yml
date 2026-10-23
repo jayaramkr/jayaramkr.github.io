@@ -13,6 +13,15 @@
 # only to appear in News on the home page — the /writing/ page builds its own
 # list straight from _posts/, so a post is never listed twice.
 
+- kind: writing
+  title: "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model"
+  url: https://huggingface.co/blog/ibm-research/altk-evolve-bc
+  outlet: IBM Research on Hugging Face
+  date: October 20, 2026
+  note: >-
+    Learned memory carrying a non-frontier model to the top of a customer-service
+    agent benchmark.
+
 - kind: post
   title: "Memory as Middleware for Self-Improving AI Agents"
   url: /writing/memory-as-middleware/
