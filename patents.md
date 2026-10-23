@@ -21,6 +21,10 @@ Where a PDF link is shown, it points to the full document on USPTO. Grants
 without one had no public PDF that could be verified.
 </p>
 
+<p class="summary">
+Named an IBM Master Inventor in 2026.
+</p>
+
 ## Granted
 
 <ul class="pub-list">

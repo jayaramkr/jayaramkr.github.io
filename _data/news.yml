@@ -22,6 +22,14 @@
     Learned memory carrying a non-frontier model to the top of a customer-service
     agent benchmark.
 
+- kind: other
+  title: "Named an IBM Master Inventor"
+  outlet: IBM
+  date: October 13, 2026
+  note: >-
+    A company-wide recognition for sustained contribution to IBM's patent portfolio
+    and for mentoring other inventors.
+
 - kind: post
   title: "Memory as Middleware for Self-Improving AI Agents"
   url: /writing/memory-as-middleware/
