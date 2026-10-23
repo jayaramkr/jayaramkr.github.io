@@ -93,6 +93,7 @@
     - "conf/compsac/Jayaram06"
   patents:
     - "YOR820140447"
+    - "US8897573"
 
 - id: events-pubsub
   title: "Event correlation, publish/subscribe, and distributed programming"
@@ -113,3 +114,5 @@
     - "conf/ecoop/EugsterJ09"
     - "conf/ecoop/JayaramE09"
     - "conf/pppj/LineJE08"
+  patents:
+    - "US10419457"

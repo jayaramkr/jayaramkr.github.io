@@ -81,6 +81,18 @@ render as plain numbers. Add either field by hand if you find a link — or, so 
 re-run of the script keeps it, add it to `GRANT_URL` at the top of
 `scripts/patents_to_yaml.py`.
 
+An entry may also carry `org:`, which renders after the disclosure year. Leave it
+out for IBM inventions — that is the default and saying so on every entry would
+be noise. It exists for the ones filed elsewhere, currently the HP Labs patent.
+
+### Inventions that aren't in the IBM export
+
+Two are not: a 2011 invention from the IBM Research internship and the HP Labs
+one, both predating the export. They live in an `EXTRA` list at the top of
+`scripts/patents_to_yaml.py` and are appended verbatim to the generated entries,
+so re-running the script keeps them. Add any future ones there rather than only
+to the YAML, which the script overwrites.
+
 ### Editing the research page
 
 `research.md` holds one `##` section of prose per theme. The paper and patent list

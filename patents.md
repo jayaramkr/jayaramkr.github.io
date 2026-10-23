@@ -2,7 +2,7 @@
 layout: default
 permalink: /patents/
 title: Patents
-subtitle: Inventions filed at IBM, grouped by invention rather than by filing — one entry may have issued in several jurisdictions. Filed under my full legal name, Jayaram Kallapalayam Radhakrishnan.
+subtitle: Inventions filed at IBM, and one earlier one from HP Labs, grouped by invention rather than by filing — one entry may have issued in several jurisdictions. Filed under my full legal name, Jayaram Kallapalayam Radhakrishnan.
 description: Patents and patent applications by Jayaram K Radhakrishnan, covering agentic memory, AI agents, federated learning, and deep learning infrastructure.
 ---
 
@@ -43,7 +43,7 @@ Named an IBM Master Inventor in 2026.
         {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
       {%- endfor -%}
     </span>
-    <span class="pub-meta">Disclosed {{ p.year }}</span>
+    <span class="pub-meta">Disclosed {{ p.year }}{% if p.org %}<span class="sep">·</span>{{ p.org }}{% endif %}</span>
   </li>
 {%- endfor -%}
 </ul>
