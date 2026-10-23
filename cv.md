@@ -62,14 +62,14 @@ Each of these is covered in more depth, with the papers and patents behind it, o
 ## Recognition
 
 <ul class="cv-list plain">
+  <li><span class="cv-what">IBM Master Inventor</span>
+      <span class="cv-where">2026</span></li>
   <li><span class="cv-what">Maurice H. Halstead Memorial Award</span>
       <span class="cv-where">Purdue University, 2011</span>
       <span class="cv-note">For outstanding research in software engineering.</span></li>
   <li><span class="cv-what">Best Paper, ACM/IFIP/USENIX Middleware</span>
       <span class="cv-where">2010, 2013</span></li>
   <li><span class="cv-what">IBM Outstanding Technical Achievement Award</span>
-      <span class="cv-where">4×</span></li>
-  <li><span class="cv-what">IBM Invention Plateau Award</span>
       <span class="cv-where">4×</span></li>
   <li><span class="cv-what">IBM Council on Innovation Leadership</span>
       <span class="cv-where">3×</span></li>

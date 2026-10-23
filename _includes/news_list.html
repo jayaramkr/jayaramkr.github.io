@@ -12,7 +12,9 @@ _data/news.yml. Optional `include.limit` caps how many are shown.
 {%- for n in items %}
   {%- comment -%}
   `url` may be external or a path on this site (a post under /writing/), so only
-  site-relative paths get run through relative_url.
+  site-relative paths get run through relative_url. It may also be absent — an
+  item that is an announcement rather than something to read — and then the
+  title renders as plain text rather than as a link to nowhere.
   {%- endcomment -%}
   {%- if n.url contains "://" -%}
     {%- assign href = n.url -%}
@@ -20,7 +22,9 @@ _data/news.yml. Optional `include.limit` caps how many are shown.
     {%- assign href = n.url | relative_url -%}
   {%- endif -%}
   <li>
-    <span class="news-title"><a href="{{ href }}">{{ n.title }}</a></span>
+    <span class="news-title">
+      {%- if n.url -%}<a href="{{ href }}">{{ n.title }}</a>{%- else -%}{{ n.title }}{%- endif -%}
+    </span>
     <span class="news-meta">
       {{- n.outlet -}}
       {%- if n.date %}<span class="sep">·</span>{{ n.date }}{% endif -%}

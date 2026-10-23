@@ -142,7 +142,9 @@ is not sorted by date.
 ```
 
 `url` may be external or a path on this site — site-relative paths are run
-through `relative_url`, external ones are left alone.
+through `relative_url`, external ones are left alone. It is optional: leave it
+out for an announcement with nothing to read, such as an award, and the title
+renders as plain text instead of as a link to nowhere.
 
 The home page shows the most recent four entries of every kind; change `limit=4`
 in `index.md` to show more. Only `kind: writing` entries appear under Elsewhere on
