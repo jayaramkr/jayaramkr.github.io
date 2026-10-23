@@ -33,6 +33,40 @@ GRANT_URL = {
     "12632795": "https://patents.google.com/patent/US20230281518A1/en",
 }
 
+# Inventions that are not in the IBM export at all, appended verbatim after the
+# generated entries so that re-running this script does not lose them. These
+# predate the export: one from the 2011 IBM Research internship, one from HP
+# Labs. `org` is rendered as a tag and is omitted for IBM inventions, which are
+# the default.
+EXTRA = [
+    {
+        "ref": "US8897573",
+        "title": "Virtual Machine Image Access De-Duplication",
+        "year": 2011,
+        "status": "granted",
+        "grants": [{
+            "country": "US",
+            "number": "8897573",
+            # Verified to resolve; the USPTO document endpoint was not reachable
+            # to check, so this points at Google's patent-document store.
+            "pdf": "https://patentimages.storage.googleapis.com/pdfs/US8897573.pdf",
+        }],
+    },
+    {
+        "ref": "US10419457",
+        "title": "Selecting from Computing Nodes for Correlating Events",
+        "year": 2013,
+        "status": "granted",
+        "org": "HP Labs",
+        "grants": [{
+            "country": "US",
+            "number": "10419457",
+            "pdf": "https://patentimages.storage.googleapis.com/09/4b/dc/"
+                   "9ee386a3c0ec4d/US10419457.pdf",
+        }],
+    },
+]
+
 # Best-to-worst; an invention takes the best status any of its filings reached.
 RANK = ["GRANTED", "APPLICATION", "PUBLISHED", "FILED", "DEFENSIVE PUBLICATION",
         "AWAITING PRE-RANKING", "AWAITING SEARCH", "ABANDONED", "CLOSED"]
@@ -165,11 +199,13 @@ def main():
         "# status: granted | pending | filed | defensive",
         "",
     ]
-    for e in kept:
+    for e in kept + EXTRA:
         lines.append("- ref: %s" % yaml_str(e["ref"]))
         lines.append("  title: %s" % yaml_str(e["title"]))
         lines.append("  year: %d" % e["year"])
         lines.append("  status: %s" % e["status"])
+        if e.get("org"):
+            lines.append("  org: %s" % yaml_str(e["org"]))
         if e["grants"]:
             lines.append("  grants:")
             for g in e["grants"]:
@@ -179,18 +215,22 @@ def main():
                     lines.append("      pdf: %s" % yaml_str(g["pdf"]))
                 if g.get("url"):
                     lines.append("      url: %s" % yaml_str(g["url"]))
-        elif e["pending"]:
+        elif e.get("pending"):
             lines.append("  pending: [%s]" % ", ".join(e["pending"]))
         lines.append("")
 
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
 
+    written = kept + EXTRA
     counts = Counter(e["status"] for e in entries)
-    print("wrote %d inventions to %s (%d dropped as closed/abandoned)"
-          % (len(kept), os.path.relpath(OUT, ROOT), counts["inactive"]))
+    counts.update(e["status"] for e in EXTRA)
+    print("wrote %d inventions to %s (%d from the export plus %d extra, "
+          "%d dropped as closed/abandoned)"
+          % (len(written), os.path.relpath(OUT, ROOT), len(kept), len(EXTRA),
+             counts["inactive"]))
     print("  granted %d (%d issued patents), pending %d, filed %d, defensive %d"
-          % (counts["granted"], sum(len(e["grants"]) for e in kept),
+          % (counts["granted"], sum(len(e["grants"]) for e in written),
              counts["pending"], counts["filed"], counts["defensive"]))
 
 

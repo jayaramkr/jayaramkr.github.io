@@ -175,3 +175,22 @@
     - country: US
       number: "9830678"
       pdf: "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9830678"
+
+- ref: "US8897573"
+  title: "Virtual Machine Image Access De-Duplication"
+  year: 2011
+  status: granted
+  grants:
+    - country: US
+      number: "8897573"
+      pdf: "https://patentimages.storage.googleapis.com/pdfs/US8897573.pdf"
+
+- ref: "US10419457"
+  title: "Selecting from Computing Nodes for Correlating Events"
+  year: 2013
+  status: granted
+  org: "HP Labs"
+  grants:
+    - country: US
+      number: "10419457"
+      pdf: "https://patentimages.storage.googleapis.com/09/4b/dc/9ee386a3c0ec4d/US10419457.pdf"
