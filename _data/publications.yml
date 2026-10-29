@@ -726,7 +726,7 @@
   url: "https://doi.org/10.1109/COMPSAC.2008.203"
 
 - key: "conf/compsac/Jayaram06"
-  title: "Identifying andTesting for Insecure Paths in Cryptographic Protocol Implementations"
+  title: "Identifying and Testing for Insecure Paths in Cryptographic Protocol Implementations"
   authors:
     - "K. R. Jayaram"
   year: 2006
